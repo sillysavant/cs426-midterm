@@ -8,3 +8,5 @@ export default function RewardScreen() {
     </SafeAreaView>
   );
 }
+
+const styles = require("../styles");

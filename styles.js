@@ -121,6 +121,7 @@ var myStyles = React.StyleSheet.create({
 
   // Detail Screen
   detailHeader: {
+    width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 20,
@@ -131,6 +132,52 @@ var myStyles = React.StyleSheet.create({
     fontSize: 18,
     fontWeight: 500,
     color: "#001833",
+  },
+  cover: {
+    width: "90%",
+    backgroundColor: "#F7F8FB",
+    borderRadius: 12,
+    alignItems: "center",
+    marginTop: 10,
+    paddingVertical: 20,
+  },
+  detailContent: {
+    width: "100%",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  detail: {
+    width: "90%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  detailName: {
+    fontFamily: "DMSans",
+    fontSize: 18,
+    fontWeight: 500,
+  },
+  quantity: {
+    fontFamily: "DMSans",
+    fontSize: 18,
+    fontWeight: 500,
+  },
+  quantityButton: {
+    width: 100,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: 16,
+    borderColor: "#D8D8D866",
+    borderRadius: 17,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderWidth: 1,
+  },
+  separator: {
+    borderBottomColor: "#F4F5F7",
+    borderBottomWidth: 1,
+    width: "90%",
+    height: 20,
   },
 });
 
