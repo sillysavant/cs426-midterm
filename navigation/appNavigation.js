@@ -15,6 +15,7 @@ import RecordScreen from "../screens/RecordScreen";
 import { Image, View } from "react-native";
 import DetailScreen from "../screens/DetailScreen";
 import CartScreen from "../screens/CartScreen";
+import CheckoutScreen from "../screens/CheckoutScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -43,6 +44,11 @@ export default function AppNavigation() {
           options={{ headerShown: false }}
           component={CartScreen}
         />
+        <Stack.Screen
+          name="Checkout"
+          options={{ headerShown: false }}
+          component={CheckoutScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -61,6 +67,9 @@ function HomeTabs() {
           backgroundColor: "#FFFFFF",
           position: "absolute",
           marginHorizontal: 24,
+          shadowColor: "rgba(50, 74, 89, 0.12)",
+          shadowOpacity: 0.5,
+          shadowOffset: { width: 0, height: 4 },
         },
       })}
     >

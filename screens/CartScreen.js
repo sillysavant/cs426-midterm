@@ -10,16 +10,31 @@ import {
 } from "react-native";
 import { GlobalArrayContext } from "../context/GlobalArrayContext";
 import { Swipeable } from "react-native-gesture-handler";
+import deleteIcon from "../assets/icons/delete.png";
 
 export default function CartScreen() {
   const navigation = useNavigation();
   const { myCart, setMyCart } = useContext(GlobalArrayContext);
   const [tempCart, setTempCart] = useState(myCart);
 
+  const getTotalPrice = () => {
+    let totalPrice = 0;
+    tempCart.map((item) => {
+      totalPrice = totalPrice + item.total;
+    });
+    return totalPrice;
+  };
+
+  const checkoutOrder = () => {
+    setMyCart([]);
+    navigation.navigate("Checkout");
+  };
+
   const renderItem = ({ item }) => {
     const handleDelete = (id) => {
-      // Implement your delete logic here
-      console.log("Delete item with ID:", id);
+      const updatedCart = tempCart.filter((item) => item.id !== id);
+      setTempCart(updatedCart);
+      setMyCart(updatedCart);
     };
     const renderRightActions = () => {
       return (
@@ -27,15 +42,60 @@ export default function CartScreen() {
           style={styles.deleteButton}
           onPress={() => handleDelete(item.id)}
         >
-          <Text style={styles.deleteButtonText}>Delete</Text>
+          <Image source={deleteIcon}></Image>
         </TouchableOpacity>
       );
     };
 
+    const printShot = (item) => {
+      if (item.shot === 1) {
+        return <Text>double</Text>;
+      } else {
+        return <Text>single</Text>;
+      }
+    };
+
+    const printSelect = (item) => {
+      if (item.select === 0) {
+        return <Text>hot</Text>;
+      } else {
+        return <Text>iced</Text>;
+      }
+    };
+
+    const printSize = (item) => {
+      if (item.size === 0) {
+        return <Text>small</Text>;
+      } else if (item.size === 1) {
+        return <Text>medium</Text>;
+      } else {
+        return <Text>large</Text>;
+      }
+    };
+
+    const printIce = (item) => {
+      if (item.ice === 0) {
+        return <Text>little ice</Text>;
+      } else if (item.ice === 1) {
+        return <Text>half ice</Text>;
+      } else {
+        return <Text>full ice</Text>;
+      }
+    };
+
     return (
       <Swipeable renderRightActions={renderRightActions}>
-        <View style={{ width: "90%", marginLeft: 20 }}>
-          <Text>{item.name}</Text>
+        <View style={styles.cartItem}>
+          <Image source={item.image} style={{ height: 61, width: 82 }} />
+          <View>
+            <Text style={styles.cartItemName}>{item.name}</Text>
+            <Text style={styles.cartItemDetails}>
+              {printShot(item)} | {printSelect(item)} | {printSize(item)} |{" "}
+              {printIce(item)}
+            </Text>
+            <Text style={styles.cardItemQuantity}>x{item.quantity}</Text>
+          </View>
+          <Text style={styles.cardItemTotal}>${item.total.toFixed(2)}</Text>
         </View>
       </Swipeable>
     );
@@ -70,6 +130,17 @@ export default function CartScreen() {
         keyExtractor={(item) => item.id}
         style={{ width: "100%" }}
       />
+
+      <View style={styles.checkout}>
+        <View style={{ alignItems: "center" }}>
+          <Text style={styles.totalText}>Total Price</Text>
+          <Text style={styles.priceText}>${getTotalPrice().toFixed(2)}</Text>
+        </View>
+        <TouchableOpacity style={styles.checkoutButton} onPress={checkoutOrder}>
+          <Image source={require("../assets/icons/cart_white.png")} />
+          <Text style={styles.checkoutText}>Checkout</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }

@@ -29,7 +29,7 @@ export default function DetailScreen(props) {
     name: item.name,
     image: item.image,
     quantity: 1,
-    shot: -1,
+    shot: 2,
     select: 1,
     size: 1,
     ice: 2,
@@ -44,7 +44,7 @@ export default function DetailScreen(props) {
       sizeFee = 0.5;
     }
 
-    return (details.quantity * (3.0 + sizeFee)).toFixed(2);
+    return details.quantity * (3.0 + sizeFee);
   };
 
   const handleIncreaseQuantity = () => {
@@ -97,22 +97,11 @@ export default function DetailScreen(props) {
   };
 
   const handleAddToCart = () => {
-    if (details.shot !== 0 && details.shot !== 1) {
-      handleChooseShot(0);
-    }
-    const itemsToAdd = Array.from({ length: details.quantity }, () => ({
-      id: uuid.v4(),
-      name: details.name,
-      image: details.image,
-      shot: details.shot,
-      select: details.select,
-      size: details.size,
-      ice: details.ice,
-    }));
+    const items = { ...details };
+    items.id = uuid.v4();
+    items.total = getTotal();
 
-    itemsToAdd.forEach((item) => {
-      setMyCart((prevCart) => [...prevCart, item]);
-    });
+    setMyCart((prevCart) => [...prevCart, items]);
     navigation.navigate("Cart");
   };
 
@@ -288,7 +277,7 @@ export default function DetailScreen(props) {
 
         <View style={styles.totalAmount}>
           <Text style={styles.total}>Total Amount</Text>
-          <Text style={styles.total}>${getTotal()}</Text>
+          <Text style={styles.total}>${getTotal().toFixed(2)}</Text>
         </View>
 
         <TouchableOpacity style={styles.addItem} onPress={handleAddToCart}>
