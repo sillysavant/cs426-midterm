@@ -11,11 +11,13 @@ import {
 import LoyaltyCard from "../components/loyaltyCard";
 import CoffeeCard from "../components/coffeeCard";
 import { coffeeItems } from "../data";
+import { useNavigation } from "@react-navigation/native";
 
 export default function HomeScreen() {
   const getMenuItems = coffeeItems.map((item) => {
     return <CoffeeCard key={item.id} item={item} />;
   });
+  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -27,7 +29,7 @@ export default function HomeScreen() {
         </View>
 
         <View style={{ flexDirection: "row" }}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
             <Image source={require("../assets/icons/cart.png")} />
           </TouchableOpacity>
           <TouchableOpacity>

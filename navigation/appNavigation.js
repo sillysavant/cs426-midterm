@@ -14,6 +14,7 @@ import RewardScreen from "../screens/RewardScreen";
 import RecordScreen from "../screens/RecordScreen";
 import { Image, View } from "react-native";
 import DetailScreen from "../screens/DetailScreen";
+import CartScreen from "../screens/CartScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -36,6 +37,11 @@ export default function AppNavigation() {
           name="Detail"
           options={{ headerShown: false }}
           component={DetailScreen}
+        />
+        <Stack.Screen
+          name="Cart"
+          options={{ headerShown: false }}
+          component={CartScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

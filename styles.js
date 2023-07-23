@@ -129,7 +129,7 @@ var myStyles = React.StyleSheet.create({
     alignItems: "center",
   },
   header: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 500,
     color: "#001833",
   },
@@ -144,23 +144,26 @@ var myStyles = React.StyleSheet.create({
   detailContent: {
     width: "100%",
     alignItems: "center",
-    marginTop: 22,
+    marginTop: 5,
   },
   detail: {
     width: "90%",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginTop: 15,
   },
   detailName: {
     fontFamily: "DMSans",
     fontSize: 18,
     fontWeight: 500,
+    color: "#001833",
   },
   quantity: {
     fontFamily: "DMSans",
     fontSize: 18,
     fontWeight: 500,
+    color: "#001833",
   },
   quantityButton: {
     width: 100,
@@ -177,7 +180,74 @@ var myStyles = React.StyleSheet.create({
     borderBottomColor: "#F4F5F7",
     borderBottomWidth: 1,
     width: "90%",
-    height: 20,
+    height: 18,
+  },
+  shotButtonActive: {
+    width: 100,
+    alignItems: "center",
+    borderColor: "#D8D8D866",
+    borderRadius: 17,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderWidth: 1,
+    backgroundColor: "#324A59",
+  },
+  shotButtonInactive: {
+    width: 100,
+    alignItems: "center",
+    borderColor: "#D8D8D866",
+    borderRadius: 17,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderWidth: 1,
+  },
+  shotContentInactive: {
+    fontFamily: "DMSans",
+    fontSize: 18,
+    fontWeight: 500,
+    color: "#001833",
+  },
+  shotContentActive: {
+    fontFamily: "DMSans",
+    fontSize: 18,
+    fontWeight: 500,
+    color: "#D8D8D8",
+  },
+  totalAmount: {
+    width: "90%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 50,
+  },
+  total: {
+    fontFamily: "Poppins",
+    fontWeight: 500,
+    fontSize: 22,
+    color: "#001833",
+  },
+  addItem: {
+    width: "90%",
+    backgroundColor: "#324A59",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 13,
+    borderRadius: 30,
+    marginTop: 15,
+  },
+  addItemContent: {
+    fontFamily: "Poppins",
+    fontWeight: 600,
+    fontSize: 16,
+    color: "#FFFFFF",
+  },
+
+  // Cart
+  cartHeader: {
+    fontFamily: "Poppins",
+    fontSize: 24,
+    fontWeight: 500,
+    color: "#001833",
   },
 });
 

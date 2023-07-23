@@ -3,7 +3,7 @@ import { SafeAreaView, Text, View } from "react-native";
 
 export default function RewardScreen() {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Text>Rewards</Text>
     </SafeAreaView>
   );
