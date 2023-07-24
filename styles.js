@@ -337,9 +337,10 @@ var myStyles = React.StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#FFFFFF",
   },
   checkoutContent: {
-    height: "80%",
+    height: "65%",
     width: "100%",
     alignItems: "center",
     justifyContent: "space-between",

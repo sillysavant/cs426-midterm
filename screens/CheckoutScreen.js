@@ -7,8 +7,10 @@ import {
   View,
 } from "react-native";
 import checkoutImg from "../assets/images/checkout.png";
+import { useNavigation } from "@react-navigation/native";
 
 export default function CheckoutScreen() {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.checkoutScreen}>
       <View style={styles.checkoutContent}>
@@ -20,7 +22,10 @@ export default function CheckoutScreen() {
             orders.
           </Text>
         </View>
-        <TouchableOpacity style={styles.addItem}>
+        <TouchableOpacity
+          style={styles.addItem}
+          onPress={() => navigation.navigate("records")}
+        >
           <Text style={styles.addItemContent}>Track My Order</Text>
         </TouchableOpacity>
       </View>
