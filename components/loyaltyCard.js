@@ -1,17 +1,15 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
-
-const cups = 8;
-const cupsBought = 4;
+import { user } from "../data";
 
 export default function LoyaltyCard() {
-  const getCupsBought = Array.from({ length: cupsBought }, (_, index) => {
+  const getCupsBought = Array.from({ length: user.loyalty }, (_, index) => {
     return (
       <Image key={index} source={require("../assets/icons/cup_solid.png")} />
     );
   });
 
-  const getCupsLeft = Array.from({ length: 8 - cupsBought }, (_, index) => {
+  const getCupsLeft = Array.from({ length: 8 - user.loyalty }, (_, index) => {
     return (
       <Image key={index} source={require("../assets/icons/cup_outline.png")} />
     );

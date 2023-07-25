@@ -16,6 +16,7 @@ import { Image, View } from "react-native";
 import DetailScreen from "../screens/DetailScreen";
 import CartScreen from "../screens/CartScreen";
 import CheckoutScreen from "../screens/CheckoutScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -48,6 +49,11 @@ export default function AppNavigation() {
           name="Checkout"
           options={{ headerShown: false }}
           component={CheckoutScreen}
+        />
+        <Stack.Screen
+          name="Profile"
+          options={{ headerShown: false }}
+          component={ProfileScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

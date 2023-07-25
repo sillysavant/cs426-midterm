@@ -20,3 +20,12 @@ export const coffeeItems = [
     image: require("./assets/images/flat_white.png"),
   },
 ];
+
+export const user = {
+  name: "Anderson",
+  phoneNo: "+60134589525",
+  email: "Anderson@email.com",
+  address: "3 Addersion Court Chino Hills, HO56824, United State",
+  point: 0,
+  loyalty: 0,
+};

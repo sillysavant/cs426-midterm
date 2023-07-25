@@ -345,6 +345,51 @@ var myStyles = React.StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
+
+  // Profile Screen
+  profileScreen: {
+    backgroundColor: "#FFFFFF",
+    flex: 1,
+    alignItems: "center",
+  },
+  profileHeader: {
+    fontFamily: "Poppins",
+    fontWeight: 500,
+    fontSize: 22,
+    color: "#001833",
+    marginTop: 10,
+  },
+  infoEdit: {
+    flexDirection: "row",
+    width: "85%",
+    marginTop: 15,
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  infoIcon: {
+    padding: 16,
+    backgroundColor: "#F7F8FB",
+    borderRadius: 50,
+  },
+  infoTitle: {
+    fontFamily: "Poppins",
+    fontWeight: 100,
+    fontSize: 14,
+    color: "rgba(0, 24, 51, 0.22)",
+  },
+  infoInput: {
+    fontSize: 20,
+    borderBottomWidth: 1,
+    marginTop: 5,
+    width: 200,
+  },
+  infoText: {
+    fontFamily: "Poppins",
+    fontSize: 20,
+    fontWeight: 600,
+    color: "#324A59",
+    marginTop: 2,
+  },
 });
 
 module.exports = myStyles;
