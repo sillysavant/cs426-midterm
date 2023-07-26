@@ -12,10 +12,11 @@ export const GlobalArrayProvider = ({ children }) => {
     point: 0,
     loyalty: 0,
   });
+  const [history, setHistory] = useState([]);
 
   return (
     <GlobalArrayContext.Provider
-      value={{ myCart, setMyCart, profile, setProfile }}
+      value={{ myCart, setMyCart, profile, setProfile, history, setHistory }}
     >
       {children}
     </GlobalArrayContext.Provider>

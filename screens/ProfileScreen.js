@@ -50,8 +50,8 @@ export default function ProfileScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.profileScreen}>
-      <Text style={styles.profileHeader}>Profile</Text>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.header}>Profile</Text>
       {/* Name */}
       <View style={styles.infoEdit}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>

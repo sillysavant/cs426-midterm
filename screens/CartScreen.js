@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import {
   SafeAreaView,
   Text,
@@ -14,26 +14,58 @@ import deleteIcon from "../assets/icons/delete.png";
 
 export default function CartScreen() {
   const navigation = useNavigation();
-  const { myCart, setMyCart } = useContext(GlobalArrayContext);
-  const [tempCart, setTempCart] = useState(myCart);
+  const { myCart, setMyCart, setProfile, setHistory, profile } =
+    useContext(GlobalArrayContext);
 
   const getTotalPrice = () => {
     let totalPrice = 0;
-    tempCart.map((item) => {
+    myCart.map((item) => {
       totalPrice = totalPrice + item.total;
     });
     return totalPrice;
   };
 
   const checkoutOrder = () => {
+    const cartCopy = [...myCart];
+    const expandedCart = [];
+    const currentDate = new Date();
+
+    cartCopy.forEach((item) => {
+      for (let i = 0; i < item.quantity; i++) {
+        const newItem = {
+          name: item.name,
+          total: item.total,
+          timestamp: currentDate.getTime(),
+        };
+        expandedCart.push({ ...newItem });
+        addLoyalty();
+        addPoint();
+      }
+    });
+    setHistory((prevHistory) => [...prevHistory, ...expandedCart]);
     setMyCart([]);
     navigation.navigate("Checkout");
   };
 
+  const addLoyalty = () => {
+    if (profile.loyalty < 8) {
+      setProfile((prevProfile) => ({
+        ...prevProfile,
+        loyalty: prevProfile.loyalty + 1,
+      }));
+    }
+  };
+
+  const addPoint = () => {
+    setProfile((prevProfile) => ({
+      ...prevProfile,
+      point: prevProfile.point + 12,
+    }));
+  };
+
   const renderItem = ({ item }) => {
     const handleDelete = (id) => {
-      const updatedCart = tempCart.filter((item) => item.id !== id);
-      setTempCart(updatedCart);
+      const updatedCart = myCart.filter((item) => item.id !== id);
       setMyCart(updatedCart);
     };
     const renderRightActions = () => {
@@ -125,7 +157,7 @@ export default function CartScreen() {
       </View>
 
       <FlatList
-        data={tempCart}
+        data={myCart}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         style={{ width: "100%" }}

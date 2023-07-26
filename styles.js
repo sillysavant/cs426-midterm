@@ -233,7 +233,7 @@ var myStyles = React.StyleSheet.create({
     justifyContent: "center",
     paddingVertical: 13,
     borderRadius: 30,
-    marginTop: 15,
+    marginTop: 5,
   },
   addItemContent: {
     fontFamily: "Poppins",
@@ -347,12 +347,7 @@ var myStyles = React.StyleSheet.create({
   },
 
   // Profile Screen
-  profileScreen: {
-    backgroundColor: "#FFFFFF",
-    flex: 1,
-    alignItems: "center",
-  },
-  profileHeader: {
+  header: {
     fontFamily: "Poppins",
     fontWeight: 500,
     fontSize: 22,

@@ -1,25 +1,41 @@
-import React from "react";
-import { View, Text, Image } from "react-native";
-import { user } from "../data";
+import React, { useContext } from "react";
+import { View, Text, Image, TouchableOpacity } from "react-native";
+import { GlobalArrayContext } from "../context/GlobalArrayContext";
 
 export default function LoyaltyCard() {
-  const getCupsBought = Array.from({ length: user.loyalty }, (_, index) => {
+  const { profile, setProfile } = useContext(GlobalArrayContext);
+  const getCupsBought = Array.from({ length: profile.loyalty }, (_, index) => {
     return (
       <Image key={index} source={require("../assets/icons/cup_solid.png")} />
     );
   });
 
-  const getCupsLeft = Array.from({ length: 8 - user.loyalty }, (_, index) => {
-    return (
-      <Image key={index} source={require("../assets/icons/cup_outline.png")} />
-    );
-  });
+  const getCupsLeft = Array.from(
+    { length: 8 - profile.loyalty },
+    (_, index) => {
+      return (
+        <Image
+          key={index}
+          source={require("../assets/icons/cup_outline.png")}
+        />
+      );
+    }
+  );
+
+  const resetLoyalty = () => {
+    if (profile.loyalty === 8) {
+      setProfile((prevProfile) => ({
+        ...prevProfile,
+        loyalty: 0,
+      }));
+    }
+  };
 
   return (
-    <View style={styles.loyaltyCard}>
+    <TouchableOpacity style={styles.loyaltyCard} onPress={resetLoyalty}>
       <View style={styles.loyaltyCardHeader}>
         <Text style={styles.title}>Loyalty Card</Text>
-        <Text style={styles.title}>4/8</Text>
+        <Text style={styles.title}>{profile.loyalty}/8</Text>
       </View>
       <View>
         <View style={styles.cardRecords}>
@@ -27,7 +43,7 @@ export default function LoyaltyCard() {
           <View style={{ flexDirection: "row", gap: 4 }}>{getCupsLeft}</View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
