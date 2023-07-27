@@ -385,6 +385,22 @@ var myStyles = React.StyleSheet.create({
     color: "#324A59",
     marginTop: 2,
   },
+
+  // My Order Screen
+  activeTab: {
+    fontFamily: "Poppins",
+    fontWeight: 500,
+    fontSize: 18,
+    color: "#001833",
+    marginBottom: 17,
+  },
+  inactiveTab: {
+    fontFamily: "Poppins",
+    fontWeight: 500,
+    fontSize: 18,
+    color: "#D8D8D8",
+    marginBottom: 17,
+  },
 });
 
 module.exports = myStyles;

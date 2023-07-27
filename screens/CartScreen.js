@@ -14,7 +14,7 @@ import deleteIcon from "../assets/icons/delete.png";
 
 export default function CartScreen() {
   const navigation = useNavigation();
-  const { myCart, setMyCart, setProfile, setHistory, profile } =
+  const { myCart, setMyCart, setProfile, setOnGoing, profile } =
     useContext(GlobalArrayContext);
 
   const getTotalPrice = () => {
@@ -42,7 +42,7 @@ export default function CartScreen() {
         addPoint();
       }
     });
-    setHistory((prevHistory) => [...prevHistory, ...expandedCart]);
+    setOnGoing((prevHistory) => [...prevHistory, ...expandedCart]);
     setMyCart([]);
     navigation.navigate("Checkout");
   };

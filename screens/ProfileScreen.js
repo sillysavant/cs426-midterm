@@ -78,7 +78,7 @@ export default function ProfileScreen() {
             <Image source={phoneIcon} />
           </View>
           <View style={{ marginLeft: 15 }}>
-            <Text style={infoTitle}>Phone Number</Text>
+            <Text style={styles.infoTitle}>Phone Number</Text>
             {editPhone ? (
               <TextInput
                 onChangeText={onPhoneChange}
@@ -100,7 +100,7 @@ export default function ProfileScreen() {
             <Image source={emailIcon} />
           </View>
           <View style={{ marginLeft: 15 }}>
-            <Text style={infoTitle}>Email</Text>
+            <Text style={styles.infoTitle}>Email</Text>
             {editEmail ? (
               <TextInput
                 onChangeText={onEmailChange}
@@ -130,7 +130,7 @@ export default function ProfileScreen() {
             <Image source={addressIcon} />
           </View>
           <View style={{ marginLeft: 15 }}>
-            <Text style={infoTitle}>Address</Text>
+            <Text style={styles.infoTitle}>Address</Text>
             {editAddress ? (
               <TextInput
                 onChangeText={onAddressChange}
