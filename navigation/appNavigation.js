@@ -17,6 +17,7 @@ import DetailScreen from "../screens/DetailScreen";
 import CartScreen from "../screens/CartScreen";
 import CheckoutScreen from "../screens/CheckoutScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import RedeemScreen from "../screens/RedeemScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -54,6 +55,11 @@ export default function AppNavigation() {
           name="Profile"
           options={{ headerShown: false }}
           component={ProfileScreen}
+        />
+        <Stack.Screen
+          name="Redeem"
+          options={{ headerShown: false }}
+          component={RedeemScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

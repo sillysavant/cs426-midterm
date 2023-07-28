@@ -21,11 +21,26 @@ export const coffeeItems = [
   },
 ];
 
-export const user = {
-  name: "Anderson",
-  phoneNo: "+60134589525",
-  email: "Anderson@email.com",
-  address: "3 Addersion Court Chino Hills, HO56824, United State",
-  point: 0,
-  loyalty: 0,
-};
+export const redeemItems = [
+  {
+    id: 1,
+    name: "Cafe Latte",
+    image: require("./assets/images/americano.png"),
+    validDate: "04.07.24",
+    worth: 1340,
+  },
+  {
+    id: 2,
+    name: "Flat White",
+    image: require("./assets/images/flat_white.png"),
+    validDate: "04.07.24",
+    worth: 1340,
+  },
+  {
+    id: 3,
+    name: "Cappuccino",
+    image: require("./assets/images/cappuccino.png"),
+    validDate: "04.07.24",
+    worth: 1340,
+  },
+];

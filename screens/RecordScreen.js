@@ -52,7 +52,7 @@ export default function RecordScreen() {
           if (active === 1) return;
           moveOngoingToHistory(item);
         }}
-        disable={active === 1 ? true : false}
+        disabled={active === 1 ? true : false}
       >
         <View
           style={{

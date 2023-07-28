@@ -10,9 +10,11 @@ import {
 import LoyaltyCard from "../components/loyaltyCard";
 import coffeeNutSvg from "../assets/icons/coffee_nuts.png";
 import { GlobalArrayContext } from "../context/GlobalArrayContext";
+import { useNavigation } from "@react-navigation/native";
 
 export default function RewardScreen() {
   const { profile, history } = useContext(GlobalArrayContext);
+  const navigation = useNavigation();
 
   const formatTimestamp = (timestamp) => {
     const date = new Date(timestamp);
@@ -137,6 +139,7 @@ export default function RewardScreen() {
             paddingHorizontal: 6,
             borderRadius: 8,
           }}
+          onPress={() => navigation.navigate("Redeem")}
         >
           <Text
             style={{
